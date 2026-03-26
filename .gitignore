@@ -1,0 +1,11 @@
+/target/
+/build/
+/.claude/
+
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+.idea/
+.vscode/

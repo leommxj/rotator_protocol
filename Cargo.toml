@@ -1,0 +1,48 @@
+[package]
+name = "rotator_protocol"
+version = "0.1.0"
+edition = "2021"
+description = "Rotator protocol converter supporting multiple protocols and transports"
+license = "MIT"
+keywords = ["rotator", "antenna", "gs232", "hamlib", "astronomy"]
+categories = ["command-line-utilities", "network-programming"]
+
+[features]
+default = []
+gui = ["iced"]
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+tokio-serial = "5"
+tokio-tungstenite = "0.21"
+futures-util = "0.3"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+thiserror = "1"
+bytes = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+async-trait = "0.1"
+clap = { version = "4", features = ["derive"] }
+reqwest = { version = "0.11", default-features = false, features = ["json", "rustls-tls"] }
+quick-xml = "0.31"
+iced = { version = "0.13", features = ["tokio"], optional = true }
+
+[dev-dependencies]
+tokio-test = "0.4"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+panic = "abort"
+
+[profile.release-small]
+inherits = "release"
+opt-level = "z"
+lto = true
+codegen-units = 1
+strip = true
+panic = "abort"

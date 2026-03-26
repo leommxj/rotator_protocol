@@ -1,0 +1,19 @@
+# 交叉编译配置
+
+# Linux ARM64
+[target.aarch64-unknown-linux-gnu]
+linker = "aarch64-linux-gnu-gcc"
+
+# Linux ARMv7 (Raspberry Pi)
+[target.armv7-unknown-linux-gnueabihf]
+linker = "arm-linux-gnueabihf-gcc"
+
+# Windows (MinGW)
+[target.x86_64-pc-windows-gnu]
+linker = "x86_64-w64-mingw32-gcc"
+
+# macOS 交叉编译 (需要 osxcross)
+# [target.x86_64-apple-darwin]
+# linker = "x86_64-apple-darwin-clang"
+# [target.aarch64-apple-darwin]
+# linker = "aarch64-apple-darwin-clang"

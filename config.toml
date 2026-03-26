@@ -1,0 +1,22 @@
+[rotator]
+protocol = "gs232"
+address = "/dev/ttyUSB0"
+baudrate = 9600
+
+[rotator.limits]
+azimuth_min = 0
+azimuth_max = 360
+elevation_min = 0
+elevation_max = 90
+
+[rotator.offset]
+azimuth = 0
+elevation = 0
+
+[client]
+protocol = "rotctld"
+address = ":4533"
+
+[options]
+coordinate_system = "altaz"
+timeout_ms = 5000
